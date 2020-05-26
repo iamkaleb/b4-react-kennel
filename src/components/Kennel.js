@@ -1,5 +1,8 @@
 import React from "react";
 import AnimalCard from "./animal/AnimalCard";
+import OwnerCard from "./owner/OwnerCard";
+import EmployeeCard from "./employee/EmployeeCard";
+import LocationCard from "./location/LocationCard";
 import "./Kennel.css";
 
 const Kennel = () => {
@@ -18,8 +21,9 @@ const Kennel = () => {
             </address>
         </div>
         <div className="container-cards">
-            <AnimalCard />
-            <AnimalCard />
+            <OwnerCard />
+            <EmployeeCard />
+            <LocationCard />
             <AnimalCard />
         </div>
     </div>
