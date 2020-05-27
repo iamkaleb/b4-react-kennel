@@ -1,6 +1,6 @@
 import React from "react";
 
-const LocationCard = () => {
+const LocationCard = props => {
   return (
     <div className="card">
       <div className="card-content">
@@ -8,7 +8,9 @@ const LocationCard = () => {
           <img src={require("./kennel.jpg")} alt="Kennel" />
         </picture>
         <h3>
-          Kennel: <span className="card-kennelename">KennelCraft</span>
+          Kennel: <span className="card-kennelename">
+            {props.location.name}
+          </span>
         </h3>
       </div>
     </div>
