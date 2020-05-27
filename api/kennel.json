@@ -1,0 +1,22 @@
+{
+    "animals": [
+        { "id": 1, "name": "Doodles", "breed": "Poodle"},
+        { "id": 2, "name": "Decker", "breed": "German Shepherd" },
+        { "id": 3, "name": "Esme", "breed": "Pitbull" }
+    ],
+    "owners": [
+        { "id": 1, "name": "Marty", "phoneNumber": "888-555-7777"},
+        { "id": 2, "name": "Paula", "phoneNumber": "999-000-1111"},
+        { "id": 3, "name": "Sybill", "phoneNumber": "222-333-4444"}
+    ],
+    "locations": [
+        { "id": 1, "name": "Ken-illmatic"},
+        { "id": 2, "name": "Pup n' Suds"},
+        { "id": 3, "name": "Kenneltopia"}
+    ],
+    "employees": [
+        { "id": 1, "name": "Remus Podany"},
+        { "id": 2, "name": "Vladmir Vashalschwartz"},
+        { "id": 3, "name": "Ben Thunderpants"}
+    ]
+}
