@@ -34,7 +34,8 @@ const LocationList = () => {
         <LocationCard 
         key={location.id} 
         location={location}
-        deleteLocation={deleteLocation} />)}
+        deleteLocation={deleteLocation} />
+    )}
     </div>
   );
 };
