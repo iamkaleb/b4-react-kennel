@@ -48,14 +48,18 @@ const ApplicationViews = () => {
       />
       <Route path="/animals/new" render={(props) => {
         return <AnimalForm {...props} />
-      }} />
-      <Route
-        exact
-        path="/locations"
-        render={props => {
-          return <LocationList />;
-        }}
+      }} 
       />
+      <Route 
+        exact 
+        path="/locations" 
+        render={props => {
+          if (isAuthenticated()) {
+            return <LocationList {...props} />
+          } else {
+            return <Redirect to="/login" />
+          }
+      }} />
       <Route
         exact
         path="/locations/:locationId(\d+)"
@@ -68,18 +72,26 @@ const ApplicationViews = () => {
         );
         }}
       />
-      <Route
-        path="/owners"
+      <Route 
+        exact 
+        path="/owners" 
         render={props => {
-          return <OwnerList />;
-        }}
-      />
-      <Route
-        path="/employees"
+          if (isAuthenticated()) {
+            return <OwnerList {...props} />
+          } else {
+            return <Redirect to="/login" />
+          }
+      }} />
+      <Route 
+        exact 
+        path="/employees" 
         render={props => {
-          return <EmployeeList />;
-        }}
-      />
+          if (isAuthenticated()) {
+            return <EmployeeList {...props} />
+          } else {
+            return <Redirect to="/login" />
+          }
+      }} />
       <Route 
       path="/login" 
       component={Login} />
