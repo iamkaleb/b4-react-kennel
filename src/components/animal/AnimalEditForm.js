@@ -22,7 +22,7 @@ const AnimalEditForm = props => {
         stateToChange[evt.target.id] = evt.target.value;
       }
       setAnimal(stateToChange);
-};
+  };
 
   useEffect(() => {getEmployees()}, []);
 

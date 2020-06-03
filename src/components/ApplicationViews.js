@@ -53,7 +53,7 @@ const ApplicationViews = (props) => {
         exact 
         path="/locations" 
         render={props => {
-            return <LocationList {...props} />
+            return <LocationList hasUser={hasUser} {...props} />
       }} />
       <Route
         exact
