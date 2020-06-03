@@ -16,7 +16,9 @@ const LocationCard = props => {
         <Link to={`/locations/${props.location.id}`}>
           <button>Details</button>
         </Link>
-        <button type="button" onClick={() => props.deleteLocation(props.location.id)}>Discharge</button>
+        {props.hasUser
+        ? <button type="button" onClick={() => props.deleteLocation(props.location.id)}>Discharge</button>
+        : null}
       </div>
     </div>
   );

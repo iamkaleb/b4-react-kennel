@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import LocationCard from './LocationCard';
 import LocationManager from '../../modules/LocationManager';
 
-const LocationList = () => {
+const LocationList = props => {
   // The initial state is an empty array
   const [locations, setLocations] = useState([]);
 
@@ -31,7 +31,8 @@ const LocationList = () => {
   return (
     <div className="container-cards">
       {locations.map(location => 
-        <LocationCard 
+        <LocationCard
+        hasUser={props.hasUser}
         key={location.id} 
         location={location}
         deleteLocation={deleteLocation} />
