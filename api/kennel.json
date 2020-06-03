@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle",
-      "employeeId": 2
+      "breed": "German Shepherd",
+      "employeeId": 3
     },
     {
       "id": 2,
@@ -71,15 +71,18 @@
   "employees": [
     {
       "id": 1,
-      "name": "Remus Podany"
+      "name": "Remus Podany",
+      "locationId": 1
     },
     {
       "id": 2,
-      "name": "Vladmir Vashalschwartz"
+      "name": "Vladmir Vashalschwartz",
+      "locationId": 2
     },
     {
       "id": 3,
-      "name": "Ben Thunderpants"
+      "name": "Ben Thunderpants",
+      "locationId": 3
     }
   ]
 }
