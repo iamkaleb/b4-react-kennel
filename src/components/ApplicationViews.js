@@ -13,9 +13,9 @@ import Login from "./auth/Login";
 import AnimalEditForm from "./animal/AnimalEditForm"
 import EmployeeWithAnimals from "./employee/EmployeeWithAnimals"
 
-const ApplicationViews = () => {
-  
-  const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+const ApplicationViews = (props) => {
+  const hasUser = props.hasUser;
+  const setUser = props.setUser;
 
   return (
     <React.Fragment>
@@ -26,15 +26,12 @@ const ApplicationViews = () => {
           return <Home />;
         }}
       />
-      <Route 
-        exact 
-        path="/animals" 
-        render={props => {
-          if (isAuthenticated()) {
-            return <AnimalList {...props} />
-          } else {
-            return <Redirect to="/login" />
-          }
+      <Route exact path="/animals" render={props => {
+        if (hasUser) {
+          return <AnimalList {...props} />
+        } else {
+          return <Redirect to="/login" />
+        }
       }} />
       <Route 
         exact
@@ -56,11 +53,7 @@ const ApplicationViews = () => {
         exact 
         path="/locations" 
         render={props => {
-          if (isAuthenticated()) {
             return <LocationList {...props} />
-          } else {
-            return <Redirect to="/login" />
-          }
       }} />
       <Route
         exact
@@ -78,7 +71,7 @@ const ApplicationViews = () => {
         exact 
         path="/owners" 
         render={props => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return <OwnerList {...props} />
           } else {
             return <Redirect to="/login" />
@@ -88,29 +81,29 @@ const ApplicationViews = () => {
         exact 
         path="/employees" 
         render={props => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return <EmployeeList {...props} />
           } else {
             return <Redirect to="/login" />
           }
       }} />
       <Route path="/employees/:employeeId(\d+)/details" render={(props) => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return <EmployeeWithAnimals {...props} />
           } else {
             return <Redirect to="/login" />
           }
       }} />
       <Route path="/animals/:animalId(\d+)/edit" render={props => {
-        if (isAuthenticated()) {
+        if (hasUser) {
           return <AnimalEditForm {...props} />
         } else {
           return <Redirect to="/login" />
         }
       }} />
-      <Route 
-      path="/login" 
-      component={Login} />
+      <Route path="/login" render={props => {
+        return <Login setUser={setUser} {...props} />
+      }} />
     </React.Fragment>
   );
 };
