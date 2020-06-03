@@ -11,6 +11,7 @@ import LocationDetail from "./location/LocationDetail";
 import AnimalForm from "./animal/AnimalForm";
 import Login from "./auth/Login";
 import AnimalEditForm from "./animal/AnimalEditForm"
+import EmployeeWithAnimals from "./employee/EmployeeWithAnimals"
 
 const ApplicationViews = () => {
   
@@ -89,6 +90,13 @@ const ApplicationViews = () => {
         render={props => {
           if (isAuthenticated()) {
             return <EmployeeList {...props} />
+          } else {
+            return <Redirect to="/login" />
+          }
+      }} />
+      <Route path="/employees/:employeeId(\d+)/details" render={(props) => {
+          if (isAuthenticated()) {
+            return <EmployeeWithAnimals {...props} />
           } else {
             return <Redirect to="/login" />
           }
