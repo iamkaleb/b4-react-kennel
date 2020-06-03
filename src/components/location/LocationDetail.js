@@ -4,14 +4,16 @@ import './LocationDetail.css'
 
 const LocationDetail = props => {
     const [location, setLocation] = useState({ name: "" });
+    const [employees, setEmployees] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-    LocationManager.get(props.locationId)
+    LocationManager.getWithEmployees(props.locationId)
         .then(location => {
             setLocation({
                 name: location.name,
             });
+            setEmployees(location.employees)
             setIsLoading(false);
         });
 }, [props.locationId]);
@@ -31,6 +33,8 @@ return (
                 <img src={require('./kennel.jpg')} alt="Kennel" />
             </picture>
             <h3>Name: <span style={{ color: 'darkslategrey' }}>{location.name}</span></h3>
+            <h3>Employees:<span style={{ color: 'darkslategrey' }}></span></h3>
+            {employees.map(employee => <h3><span style={{ color: 'darkslategrey' }}>{employee.name}</span></h3>)}
             <button type="button" disabled={isLoading} onClick={handleDelete}>
                 Discharge
             </button>

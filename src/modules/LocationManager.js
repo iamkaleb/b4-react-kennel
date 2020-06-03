@@ -11,5 +11,9 @@ export default {
     return fetch(`${remoteURL}/locations/${id}`, {
       method: "DELETE"
     }).then(result => result.json())
+  },
+  getWithEmployees(id) {
+      return fetch(`${remoteURL}/locations/${id}?_embed=employees`)
+        .then(result => result.json())
   }
 }
